@@ -1,6 +1,11 @@
 <?php
 require '../db.php';
 
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $case_id = trim($_POST["case_id"]);
     $case_password = password_hash($_POST["case_password"], PASSWORD_DEFAULT);
@@ -10,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $db->prepare("INSERT INTO cases (case_id, case_password) VALUES (?, ?)");
             $stmt->execute([$case_id, $case_password]);
 
-            // Redirect to USER login page
-            header("Location: login.php");
+            // Redirect to USER case-login page
+            header("Location: case-login.php");
             exit();
 
         } catch (PDOException $e) {
@@ -22,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </form>
 
                     <div class="mt-3 text-center">
-                        <a href="login.php">Back to Login</a>
+                        <a href="case-login.php">Back to Case Login</a>
                     </div>
 
                 </div>

@@ -1,6 +1,10 @@
 #Exports data from csv files and slaps it into the dashboard when run.
 import sqlite3
 import csv
+import os
+
+# Find th eos by going up two levels from the scripts folder.
+db_path = os.path.join(os.path.dirname(__file__), '..', '..', 'database.db')
 
 def ingest_csv(tool_name, file_path):
     conn = sqlite3.connect('database.db')

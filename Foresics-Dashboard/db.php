@@ -4,7 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 try {
-    $db = new PDO('sqlite:database.db');
+    $db_path = __DIR__ . '/../database.db';
+    $db = new PDO("sqlite:" . $db_path);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $db->exec("CREATE TABLE IF NOT EXISTS users (
@@ -21,12 +22,12 @@ try {
 
     // A shared table that holds forensic results
     $db->exec("CREATE TABLE IF NOT EXISTS artifacts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    tool TEXT,           -- Autopsy, Wireshark, etc.
-    artifact_type TEXT,  -- IP Address, File Name, Registry Key
-    value TEXT,          -- The actual data found
-    severity TEXT,       -- High, Medium, Low
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        tool TEXT,           -- Autopsy, Wireshark, etc.
+        artifact_type TEXT,  -- IP Address, File Name, Registry Key
+        value TEXT,          -- The actual data found
+        severity TEXT,       -- High, Medium, Low
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     );");
 
 } catch (PDOException $e) {
