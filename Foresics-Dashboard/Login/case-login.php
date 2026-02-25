@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($case && password_verify($case_password, $case["case_password"])) {
         $_SESSION["case_id"] = $case["case_id"];
-        header("Location: ../index.html");
+        header("Location: ../dashboard.php");
         exit();
     } else {
         $error = "Invalid case credentials.";

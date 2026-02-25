@@ -19,6 +19,16 @@ try {
         case_password TEXT NOT NULL
     );");
 
+    // A shared table that holds forensic results
+    $db->exec("CREATE TABLE IF NOT EXISTS artifacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tool TEXT,           -- Autopsy, Wireshark, etc.
+    artifact_type TEXT,  -- IP Address, File Name, Registry Key
+    value TEXT,          -- The actual data found
+    severity TEXT,       -- High, Medium, Low
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    );");
+
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());
 }
