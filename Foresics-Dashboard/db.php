@@ -31,7 +31,19 @@ try {
         artifact_type TEXT,  -- IP Address, File Name, Registry Key
         value TEXT,          -- The actual data found
         severity TEXT,       -- High, Medium, Low
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        evidence_id INTEGER, -- Links to evidence.id
+        case_id TEXT         -- Links to cases.case_id
+    );");
+
+    // Evidence Table to track files
+    $db->exec("CREATE TABLE IF NOT EXISTS evidence (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        case_id TEXT NOT NULL,
+        file_name TEXT NOT NULL,
+        file_path TEXT NOT NULL,
+        source_program TEXT NOT NULL, -- Wireshark, Autopsy, etc.
+        upload_date DATETIME DEFAULT CURRENT_TIMESTAMP
     );");
 
 } catch (PDOException $e) {

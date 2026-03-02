@@ -1,27 +1,40 @@
 <?php
-require '../db.php';
+    require '../db.php';
 
-// Checks if user_id is missing from session and redirects to login.php
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login/login.php"); // Kick out people who aren't logged in
-    exit();
-}
-/*
-// Trigger Python Script via Button
-$analysis_message = "";
-// Run it asynchronously to prevent system hangs
-if (isset($_POST['run_analysis'])) {
-    $scriptPath = realpath(__DIR__ . '/../scripts/ingest_tools.py');
-
-    // If Windows: Uses command 'start /B' to run in python script in the background.
-    // Else Linux/Mac: Use '> /dev/null 2>&1 &' to run in background
-    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        pclose(popen("start /B python \"$scriptPath\"", "r"));
-    } else {
-        exec("python \"$scriptPath\" /dev/null 2>&1 &");
+    // Checks if user_id is missing from session and redirects to login.php
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: ../Login/login.php"); // Kick out people who aren't logged in
+        exit();
     }
-    $analysis_message = "Analysis started in the background!";
-}*/
+
+    // Get the active case ID from session
+    $current_case = $_SESSION['case_id'] ?? 'None';
+
+    // 1. Count Evidence Items for THIS case
+    $stmt_evidence = $db->prepare("SELECT COUNT(*) FROM evidence WHERE case_id = ?");
+    $stmt_evidence->execute([$current_case]);
+    $evidence_count = $stmt_evidence->fetchColumn();
+
+    $analysis_message = "";
+
+    if (isset($_POST['run_analysis'])) {
+        $case_id = $_SESSION['case_id'];
+        $scriptPath = realpath(__DIR__ . '/../scripts/wireshark_parser.py');
+
+        if ($scriptPath && file_exists($scriptPath)) {
+            // Run in background using the 'start /B' method to prevent DB locking
+            if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+                // Passing case_id as an argument to the python script
+                pclose(popen("start /B python \"$scriptPath\" \"$case_id\"", "r"));
+                $analysis_message = "Background analysis started for " . htmlspecialchars($case_id) . ". Refresh in a few seconds to see results.";
+            } else {
+                exec("python3 \"$scriptPath\" \"$case_id\" > /dev/null 2>&1 &");
+                $analysis_message = "Analysis started.";
+            }
+        } else {
+            $analysis_message = "Error: Python script not found at " . htmlspecialchars($scriptPath);
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -61,12 +74,12 @@ if (isset($_POST['run_analysis'])) {
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-primary text-white mb-4">
                             <!-- Currently displays the active case id's but maybe we'll add a count -->
-                            <div class="card-body">Active Case: <?php echo htmlspecialchars($_SESSION['case_id']); ?></div>
+                            <div class="card-body">Active Case: <?php echo htmlspecialchars($current_case); ?></div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-warning text-white mb-4">
-                            <div class="card-body">Evidence Items</div>
+                            <div class="card-body">Evidence Items: <?php echo $evidence_count; ?></div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6">
@@ -80,7 +93,36 @@ if (isset($_POST['run_analysis'])) {
                         </div>
                     </div>
                 </div>
-
+                <!-- Parser Button -->
+                 <div class="card mb-4 border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Forensic Processing Engine
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    Run Automated Analysis
+                                </div>
+                                <p class="text-muted small">This will trigger the Python scraper for your most recently uploaded Wireshark file for Case: <strong><?php echo htmlspecialchars($_SESSION['case_id']); ?></strong></p>
+                            </div>
+                            <div class="col-auto">
+                                <form method="POST">
+                                    <button type="submit" name="run_analysis" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-play fa-sm text-white-50 me-2"></i> Start Wireshark Scrape
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <?php if (isset($analysis_message) && $analysis_message): ?>
+                            <div class="alert alert-info mt-3 alert-dismissible fade show" role="alert">
+                                <i class="fas fa-info-circle me-1"></i> <?php echo $analysis_message; ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <!-- CHARTS -->
                 <div class="row">
                     <div class="col-xl-6">

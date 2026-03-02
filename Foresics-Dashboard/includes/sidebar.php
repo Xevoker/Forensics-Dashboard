@@ -12,7 +12,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-folder-open"></i></div>
                     Cases
                 </a>
-                <a class="nav-link" href="#"> <!-- evidence.php -->
+                <a class="nav-link" href="evidence.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
                     Evidence
                 </a>
@@ -24,13 +24,14 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                     Reports
                 </a>
-
                 <div class="sb-sidenav-menu-heading">Analysis Tools</div>
+                <!-- Old python script tool
                 <form action="dashboard.php" method="POST" style="padding: 0 1rem;">
                     <button type="submit" name="run_analysis" class="btn btn-success btn-sm w-100 mt-2">
                         <i class="fas fa-play me-1"></i> Run Ingestion
                     </button>
                 </form>
+                -->
                 <a class="nav-link" href="#"> <!-- hashing.php-->
                     <div class="sb-nav-link-icon"><i class="fas fa-fingerprint"></i></div>
                     Hash Verification

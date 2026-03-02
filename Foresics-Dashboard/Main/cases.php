@@ -1,10 +1,30 @@
 <?php
     session_start();
     require '../db.php';
+
     // Checks if user_id is missing from session and redirects to login.php
     if (!isset($_SESSION['user_id'])) {
-        header("Location: ../Login/login.php"); // Kick out people who aren't logged in
+        header("Location: ../Login/login.php");
         exit();
+    }
+
+    // Update Status and delete case
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['case_id'])) {
+        $active_case_id = $_SESSION['case_id'];
+
+        if (isset($_POST['update_status'])) {
+            $new_status = ($_POST['current_status'] == 'Open') ? 'Closed' : 'Open';
+            $stmt = $db->prepare("UPDATE cases SET status = ? WHERE case_id = ?");
+            $stmt->execute([$new_status, $active_case_id]);
+        }
+
+        if (isset($_POST['delete_case'])) {
+            $stmt = $db->prepare("DELETE FROM cases WHERE case_id = ?");
+            $stmt->execute([$active_case_id]);
+            unset($_SESSION['case_id']); 
+            header("Location: ../Login/case-login.php");
+            exit();
+        }
     }
 
     // Count Statistics
@@ -12,11 +32,11 @@
     $open_cases = $db->query("SELECT COUNT(*) FROM cases WHERE status = 'Open'")->fetchColumn();
     $closed_cases = $db->query("SELECT COUNT(*) FROM cases WHERE status = 'Closed'")->fetchColumn();
 
-    // Fetch the current active case details
-    $active_id = $_SESSION['case_id'] ?? null;
+    // Fetch details of the logged-in case
+    $session_case_id = $_SESSION['case_id'] ?? null;
     $stmt = $db->prepare("SELECT * FROM cases WHERE case_id = ?");
-    $stmt->execute([$active_id]);
-    $current_case = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->execute([$session_case_id]);
+    $current_case = $stmt->fetch(PDO::FETCH_ASSOC); // This is now an Array
 ?>
 
 <!DOCTYPE html>
@@ -49,13 +69,16 @@
 
                 <h1 class="mt-4">Case Management</h1>
 
+                 <!-- Upload Form -->
+                <?php include '../includes/upload_form.php'; ?>
+
                 <!-- ADD CASE BUTTON -->
                 <div class="mb-3">
                     <button class="btn btn-primary">
                         <i class="fas fa-plus"></i> Add New Case
                     </button>
                 </div>
-                
+
                 <!-- Total, Open, and Completed Case Banner -->
                 <div class="row">
                     <div class="col-md-4">
@@ -74,10 +97,19 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Toggle Case Status and Delete Case Buttons -->
+                <div class="row">
+                    <form method="POST" onsubmit="return confirm('Are you sure?');" style="display:inline;">
+                        <input type="hidden" name="current_status" value="<?php echo $current_case['status']; ?>">
+                        <button type="submit" name="update_status" class="btn btn-sm btn-info">Toggle Status</button>
+                        <button type="submit" name="delete_case" class="btn btn-sm btn-danger">Delete Case</button>
+                    </form>
+                </div>
 
                 <!-- CASE TABLE -->
                 <div class="card mb-4">
-                    <div class="card-header">Current Active Case</div>
+                    <div class="card-header">Current Case</div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
