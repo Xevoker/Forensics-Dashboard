@@ -1,5 +1,6 @@
 <?php
 require '../db.php';
+require_once '../logs/logger.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = trim($_POST["user_id"]);
@@ -11,9 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user && password_verify($password, $user["password"])) {
         $_SESSION["user_id"] = $user["user_id"];
+        logAction($user_id, "User Successfully Logged In", "login.php");
         header("Location: case-login.php");
         exit();
     } else {
+        logAction($user_id, "Failed Login Attempt", "login.php");
         $error = "Invalid login credentials.";
     }
 }

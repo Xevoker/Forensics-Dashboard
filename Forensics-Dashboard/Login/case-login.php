@@ -1,10 +1,12 @@
 <?php
 require '../db.php';
+require_once '../logs/logger.php';
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
 }
+logAction($_SESSION["user_id"], "Accessed Case Login Page", "case-login.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $case_id = trim($_POST["case_id"]);
@@ -16,10 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($case && password_verify($case_password, $case["case_password"])) {
         $_SESSION["case_id"] = $case["case_id"];
+        logAction($_SESSION["user_id"], "User Successfully Logged Into Case" . $case["case_id"], "case-login.php");
         header("Location: ../Main/dashboard.php");
         exit();
     } else {
         $error = "Invalid case credentials.";
+        logAction($_SESSION["user_id"], "Failed Case Login Attempt", "case-login.php");
     }
 }
 ?>

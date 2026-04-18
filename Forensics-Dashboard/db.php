@@ -56,12 +56,14 @@ try {
         source_program TEXT NOT NULL, -- Wireshark, Autopsy, etc.
         upload_date DATETIME DEFAULT CURRENT_TIMESTAMP,
         parse_status TEXT DEFAULT 'pending', -- pending | processing | done | error
-        artifact_count INTEGER DEFAULT 0
+        artifact_count INTEGER DEFAULT 0,
+        file_hash TEXT -- SHA256 hash of the file for integrity verification
     );");
 
     // Migrate existing evidence tables that predate these columns (safe to run every time)
     try { $db->exec("ALTER TABLE evidence ADD COLUMN parse_status TEXT DEFAULT 'pending';"); } catch (PDOException $e) {}
     try { $db->exec("ALTER TABLE evidence ADD COLUMN artifact_count INTEGER DEFAULT 0;"); } catch (PDOException $e) {}
+    try { $db->exec("ALTER TABLE evidence ADD COLUMN file_hash TEXT;"); } catch (PDOException $e) {}
 
 } catch (PDOException $e) {
     die("Database error: " . $e->getMessage());

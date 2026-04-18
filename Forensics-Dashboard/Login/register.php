@@ -1,5 +1,6 @@
 <?php
 require '../db.php';
+require_once '../logs/logger.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = trim($_POST["user_id"]);
@@ -8,10 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $stmt = $db->prepare("INSERT INTO users (user_id, password) VALUES (?, ?)");
         $stmt->execute([$user_id, $password]);
+        logAction($user_id, "User Registered", "register.php");
         header("Location: login.php");
         exit();
     } catch (PDOException $e) {
         $error = "User already exists.";
+        logAction($user_id, "Failed User Registration", "register.php");
     }
 }
 ?>

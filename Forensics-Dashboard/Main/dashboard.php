@@ -1,14 +1,44 @@
 <?php
     require '../db.php';
+    require_once '../logs/logger.php';
 
     // Checks if user_id is missing from session and redirects to login.php
     if (!isset($_SESSION['user_id'])) {
         header("Location: ../Login/login.php"); // Kick out people who aren't logged in
         exit();
     }
+    logAction($_SESSION["user_id"], "User Accessed Dashboard", "dashboard.php");
 
     // Get the active case ID from session
     $current_case = $_SESSION['case_id'] ?? 'None';
+    $artifacts = [];
+    $evidence_files = [];
+
+    if ($current_case) {
+        // Get artifacts (extracted data)
+        $query = "SELECT a.*, e.file_name, e.source_program 
+                  FROM artifacts a 
+                  JOIN evidence e ON a.evidence_id = e.id 
+                  WHERE a.case_id = ? 
+                  ORDER BY a.timestamp DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$current_case]);
+        $artifacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Get evidence files
+        $query = "SELECT id, file_name, source_program, upload_date, file_hash FROM evidence WHERE case_id = ? ORDER BY upload_date DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$current_case]);
+        $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    $stmt_uploads = $db->prepare("
+    SELECT file_name, source_program, upload_date, file_hash 
+    FROM evidence 
+    WHERE case_id = ? 
+    ORDER BY upload_date DESC
+");
+$stmt_uploads->execute([$current_case]);
+$upload_rows = $stmt_uploads->fetchAll(PDO::FETCH_ASSOC);
 
     // 1. Count Evidence Items for THIS case
     $stmt_evidence = $db->prepare("SELECT COUNT(*) FROM evidence WHERE case_id = ?");
@@ -168,67 +198,45 @@
                         </div>
                     </div>
                 </div>
-                <!-- CHARTS -->
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                Case Activity Timeline
-                            </div>
-                            <div class="card-body">
-                                <canvas id="myAreaChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-6">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                Evidence Type Distribution
-                            </div>
-                            <div class="card-body">
-                                <canvas id="myBarChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            
                 <!-- EVIDENCE TABLE -->
                 <div class="card mb-4">
-                    <div class="card-header"><i class="fas fa-table me-1"></i>Evidence Log</div>
-                    <div class="card-body">
-                        <table id="datatablesSimple">
-                            <thead>
-                                <tr>
-                                    <th>Evidence ID</th>
-                                    <th>Type</th>
-                                    <th>Source Device</th>
-                                    <th>Date Collected</th>
-                                    <th>SHA-256 Hash</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    $stmt = $db->prepare("SELECT * FROM artifacts WHERE case_id = ? ORDER BY timestamp DESC");
-                                    $stmt->execute([$current_case]);
-                                    $results = $stmt;
-                                    while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
-                                        echo "<tr>";
-                                        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                                        echo "<td>" . htmlspecialchars($row['tool']) . "</td>";
-                                        echo "<td>" . htmlspecialchars($row['artifact_type']) . "</td>";
-                                        echo "<td>" . htmlspecialchars($row['timestamp']). "</td>";
-                                        echo "<td>" . htmlspecialchars($row['value']) . "</td>";
-                                        echo "<td><span class='badge bg-warning'>" . htmlspecialchars($row['severity']) . "</span></td>";
-                                        echo "<td>" . htmlspecialchars($row['timestamp']) . "</td>";
-                                        echo "</tr>";
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="card-header"><i class="fas fa-clock me-1"></i> Evidence Upload Log</div>
+    <div class="card-body">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>File Name</th>
+                    <th>Source Program</th>
+                    <th>Upload Date</th>
+                    <th>Integrity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($upload_rows)): ?>
+                    <?php foreach ($upload_rows as $row): ?>
+                    <tr>
+                        <td><code><?php echo htmlspecialchars($row['file_name']); ?></code></td>
+                        <td><span class="badge bg-info text-dark"><?php echo htmlspecialchars($row['source_program']); ?></span></td>
+                        <td><?php echo htmlspecialchars($row['upload_date']); ?></td>
+                        <td>
+                            <?php if (!empty($row['file_hash'])): ?>
+                                <span class="badge bg-success"><i class="fas fa-check me-1"></i>Hash Stored</span>
+                            <?php else: ?>
+                                <span class="badge bg-warning text-dark"><i class="fas fa-exclamation me-1"></i>No Hash</span>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">No evidence uploaded for this case yet.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
             </div>
         </main>
         <?php include '../includes/footer.php'; ?>

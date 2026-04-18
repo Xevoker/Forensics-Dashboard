@@ -3,6 +3,10 @@ import sqlite3
 import csv
 import os
 
+# Fix Windows console encoding issues with Unicode characters
+if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 # ─── Config ───────────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BATCH_SIZE = 200
@@ -37,12 +41,10 @@ def get_connection():
     conn.execute("PRAGMA busy_timeout=8000;")
     return conn
 
-def get_latest_wireshark_evidence(conn, case_id):
+def get_evidence_details(conn, evidence_id):
     cur = conn.execute(
-        """SELECT id, file_path FROM evidence
-           WHERE case_id = ? AND source_program = 'Wireshark'
-           ORDER BY upload_date DESC LIMIT 1""",
-        (case_id,)
+        """SELECT id, case_id, file_path FROM evidence WHERE id = ?""",
+        (evidence_id,)
     )
     return cur.fetchone()
 
@@ -107,6 +109,17 @@ def detect_columns(header_row):
     }
 
 def parse_wireshark_csv(file_path, case_id, evidence_id):
+    # Check if file is binary PCAP format
+    with open(file_path, 'rb') as f:
+        header = f.read(4)
+        if header == b'\xa1\xb2\xc3\xd4' or header == b'\xd4\xc3\xb2\xa1':
+            # This is a PCAP binary file, not CSV
+            raise ValueError(
+                "File is a binary PCAP file, not a CSV export. "
+                "Please export from Wireshark as CSV (File > Export Packet List > CSV) "
+                "or use tshark to convert: tshark -r file.pcap -T csv > file.csv"
+            )
+    
     with open(file_path, newline='', encoding='utf-8', errors='replace') as f:
         reader = csv.DictReader(f)
         cols = detect_columns(reader.fieldnames or [])
@@ -165,7 +178,7 @@ def set_status(conn, evidence_id, status, artifact_count=None):
         )
     conn.commit()
 
-def run(case_id):
+def run(evidence_id):
     conn = get_connection()
 
     # Ensure status columns exist (safe migration)
@@ -180,54 +193,56 @@ def run(case_id):
     except Exception:
         pass
 
-    row = get_latest_wireshark_evidence(conn, case_id)
+    row = get_evidence_details(conn, evidence_id)
     if not row:
-        print(f"[wireshark_parser] No Wireshark evidence found for case '{case_id}'.")
+        print(f"[wireshark_parser] No evidence found with ID '{evidence_id}'.")
         conn.close()
         return
 
-    evidence_id, stored_path = row
+    evidence_id_val, case_id, stored_path = row
     file_path = resolve_path(stored_path)
 
-    print(f"[wireshark_parser] Stored path : {stored_path}")
-    print(f"[wireshark_parser] Resolved to : {file_path}")
-    print(f"[wireshark_parser] File exists : {os.path.exists(file_path)}")
+    print(f"[wireshark_parser] Evidence ID   : {evidence_id_val}")
+    print(f"[wireshark_parser] Case ID       : {case_id}")
+    print(f"[wireshark_parser] Stored path   : {stored_path}")
+    print(f"[wireshark_parser] Resolved to   : {file_path}")
+    print(f"[wireshark_parser] File exists   : {os.path.exists(file_path)}")
 
-    if already_parsed(conn, evidence_id):
-        print(f"[wireshark_parser] Evidence ID {evidence_id} already parsed. Skipping.")
+    if already_parsed(conn, evidence_id_val):
+        print(f"[wireshark_parser] Evidence ID {evidence_id_val} already parsed. Skipping.")
         conn.close()
         return
 
     if not os.path.exists(file_path):
-        set_status(conn, evidence_id, 'error')
+        set_status(conn, evidence_id_val, 'error')
         print(f"[wireshark_parser] ERROR: File not found at resolved path: {file_path}")
         conn.close()
         return
 
     print(f"[wireshark_parser] Parsing for case '{case_id}'...")
-    set_status(conn, evidence_id, 'processing', 0)
+    set_status(conn, evidence_id_val, 'processing', 0)
 
     total = 0
     try:
         batch = []
-        for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+        for artifact in parse_wireshark_csv(file_path, case_id, evidence_id_val):
             batch.append(artifact)
             if len(batch) >= BATCH_SIZE:
                 insert_batch(conn, batch)
                 total += len(batch)
                 batch.clear()
-                set_status(conn, evidence_id, 'processing', total)
+                set_status(conn, evidence_id_val, 'processing', total)
                 print(f"[wireshark_parser] {total} rows inserted...")
 
         if batch:
             insert_batch(conn, batch)
             total += len(batch)
 
-        set_status(conn, evidence_id, 'done', total)
+        set_status(conn, evidence_id_val, 'done', total)
         print(f"[wireshark_parser] Done. {total} artifacts inserted for case '{case_id}'.")
 
     except Exception as e:
-        set_status(conn, evidence_id, 'error', total)
+        set_status(conn, evidence_id_val, 'error', total)
         print(f"[wireshark_parser] ERROR: {e}")
         import traceback
         traceback.print_exc()
@@ -237,6 +252,6 @@ def run(case_id):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python3 wireshark_parser.py <case_id>")
+        print("Usage: python3 wireshark_parser.py <evidence_id>")
         sys.exit(1)
     run(sys.argv[1])

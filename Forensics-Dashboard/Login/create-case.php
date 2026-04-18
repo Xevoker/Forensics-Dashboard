@@ -1,10 +1,12 @@
 <?php
 require '../db.php';
+require_once '../logs/logger.php';
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
 }
+logAction($_SESSION["user_id"], "Accessed Create Case Page", "create-case.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $case_id = trim($_POST["case_id"]);
@@ -18,11 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->execute([$case_id, $case_password, $case_name, $investigator]);
 
             // Redirect to USER case-login page
+            logAction($_SESSION["user_id"], "Created New Case", "create-case.php");
             header("Location: case-login.php");
             exit();
 
         } catch (PDOException $e) {
             $error = "Case ID already exists.";
+            logAction($_SESSION["user_id"], "Failed to Create New Case", "create-case.php");
         }
     } else {
         $error = "All fields are required.";

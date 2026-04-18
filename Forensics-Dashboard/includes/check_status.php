@@ -1,8 +1,7 @@
 <?php
 /**
  * check_status.php
- * Polling endpoint — returns JSON parse status for the latest Wireshark
- * evidence file belonging to the active case.
+ * Polling endpoint — returns JSON parse status for a specific evidence file.
  *
  * Response: { "status": "pending|processing|done|error|none", "artifact_count": N }
  */
@@ -10,20 +9,20 @@ require '../db.php';
 
 header('Content-Type: application/json');
 
-if (!isset($_SESSION['case_id'])) {
+if (!isset($_SESSION['case_id']) || !isset($_GET['evidence_id'])) {
     echo json_encode(['status' => 'none', 'artifact_count' => 0]);
     exit;
 }
 
 $case_id = $_SESSION['case_id'];
+$evidence_id = intval($_GET['evidence_id']);
 
 $stmt = $db->prepare(
     "SELECT parse_status, artifact_count
      FROM evidence
-     WHERE case_id = ? AND source_program = 'Wireshark'
-     ORDER BY upload_date DESC LIMIT 1"
+     WHERE id = ? AND case_id = ?"
 );
-$stmt->execute([$case_id]);
+$stmt->execute([$evidence_id, $case_id]);
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$row) {

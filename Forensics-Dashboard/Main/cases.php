@@ -37,6 +37,9 @@
     $stmt = $db->prepare("SELECT * FROM cases WHERE case_id = ?");
     $stmt->execute([$session_case_id]);
     $current_case = $stmt->fetch(PDO::FETCH_ASSOC); // This is now an Array
+
+    // Load all cases
+    $all_cases = $db->query("SELECT * FROM cases ORDER BY date_created DESC")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -69,14 +72,11 @@
 
                 <h1 class="mt-4">Case Management</h1>
 
-                 <!-- Upload Form -->
-                <?php include '../includes/upload_form.php'; ?>
-
                 <!-- ADD CASE BUTTON -->
                 <div class="mb-3">
-                    <button class="btn btn-primary">
+                    <a href="../Login/create-case.php" class="btn btn-primary">
                         <i class="fas fa-plus"></i> Add New Case
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Total, Open, and Completed Case Banner -->
@@ -109,34 +109,44 @@
 
                 <!-- CASE TABLE -->
                 <div class="card mb-4">
-                    <div class="card-header">Current Case</div>
+                    <div class="card-header">All Cases</div>
                     <div class="card-body">
-                        <table id="datatablesSimple">
-                            <thead>
-                                <tr>
-                                    <th class="pe-4">Case ID</th>
-                                    <th class="pe-4">Case Name</th>
-                                    <th class="pe-4">Lead Investigator</th>
-                                    <th class="pe-4">Date Opened</th>
-                                    <th class="pe-4">Status</th>
-                                    <th class="pe-4">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if ($current_case): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($current_case['case_id']); ?></td>
-                                    <td><?php echo htmlspecialchars($current_case['case_name']); ?></td>
-                                    <td><?php echo htmlspecialchars($current_case['investigator']); ?></td>
-                                    <td><?php echo $current_case['date_created']; ?></td>
-                                    <td><span class="badge bg-primary"><?php echo $current_case['status']; ?></span></td>
-                                    <td><a href="../Login/case-login.php" class="btn btn-sm btn-warning">Switch Case</a></td>
-                                </tr>
-                                <?php else: ?>
-                                <tr><td colspan="5" class="text-center">No active case selected. <a href="../Login/case-login.php">Login here</a></td></tr>
-                                <?php endif; ?>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table id="datatablesSimple" class="table table-striped table-bordered table-hover align-middle mb-0">
+                                <thead class="table-light border-bottom">
+                                    <tr>
+                                        <th class="pe-4">Case ID</th>
+                                        <th class="pe-4">Case Name</th>
+                                        <th class="pe-4">Lead Investigator</th>
+                                        <th class="pe-4">Date Opened</th>
+                                        <th class="pe-4">Status</th>
+                                        <th class="pe-4">Active</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($all_cases)): ?>
+                                        <?php foreach ($all_cases as $case): ?>
+                                        <tr>
+                                            <td class="fw-bold text-dark"><?php echo htmlspecialchars($case['case_id']); ?></td>
+                                            <td><?php echo htmlspecialchars($case['case_name']); ?></td>
+                                            <td><?php echo htmlspecialchars($case['investigator']); ?></td>
+                                            <td><?php echo htmlspecialchars($case['date_created']); ?></td>
+                                            <td><span class="badge <?php echo $case['status'] === 'Open' ? 'bg-success' : 'bg-secondary'; ?>"><?php echo htmlspecialchars($case['status']); ?></span></td>
+                                            <td>
+                                                <?php if ($case['case_id'] === $session_case_id): ?>
+                                                    <span class="badge bg-primary">Current</span>
+                                                <?php else: ?>
+                                                    <a href="../Login/case-login.php" class="btn btn-sm btn-warning">Switch</a>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr><td colspan="6" class="text-center py-4">No cases found.</td></tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -31,3 +31,379 @@
 [wireshark_parser] Resolved to : E:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773199390_2023-01 - Copy.csv
 [wireshark_parser] File exists : True
 [wireshark_parser] Evidence ID 1 already parsed. Skipping.
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 213, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 114, in parse_wireshark_csv
+    print(f"[wireshark_parser] CSV columns detected: {reader.fieldnames}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 213, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 114, in parse_wireshark_csv
+    print(f"[wireshark_parser] CSV columns detected: {reader.fieldnames}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 213, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 114, in parse_wireshark_csv
+    print(f"[wireshark_parser] CSV columns detected: {reader.fieldnames}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 213, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 114, in parse_wireshark_csv
+    print(f"[wireshark_parser] CSV columns detected: {reader.fieldnames}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 213, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 114, in parse_wireshark_csv
+    print(f"[wireshark_parser] CSV columns detected: {reader.fieldnames}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 213, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 114, in parse_wireshark_csv
+    print(f"[wireshark_parser] CSV columns detected: {reader.fieldnames}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: 'charmap' codec can't encode character '\ufffd' in position 43: character maps to <undefined>
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] CSV columns detected: ['�ò�\x02\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00��\x00\x00i\x00\x00\x00t��J��\x0c\x00\x04\x06\x00\x00\x04\x06\x00\x00\x08B', '\x00\x00���w5\x00\x13_�~P\x00\x1as=g<p�3)\\\x00x|�*�))5E\x12�K\x17���\x16�\x03vv', '��_�fJq���6��_t�-��\x01<�6!^��R©���.}��@\x17��b���c�\x03�0�\x07��M�y(���ꋆJ����', '�Ը�M��K���t5�fT�S�ͼ��Ez\x1b\x0c#���EM��m��<\x105��\x1e�#��9o\x1e&�|4\x05n\x14y��8\x12���!�h6\x0cm��0\x18�\x00�\x1a|M���Yr\x04�U�YY�q\x11��ٕ�k\x1d�J��@\x1a�hR���b��}*%Qk�0�g$ޛHM*d\x1a\x07?*�4�nv�\x00\x7f/���<�5�ι2�\x01.�H�w1����M�L��&Η\x01��{��F\x10�kU\x15�W\x0b�\x13-\x16��������(g\x11BŪT��\x08;��2�V�^��\x15\x01�:[�h��\x08�\x1aP']
+[wireshark_parser] Mapped to: {'source': None, 'destination': None, 'protocol': None, 'info': None, 'time': None}
+[wireshark_parser] Done. 0 artifacts inserted for case '51'.
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] CSV columns detected: ['�ò�\x02\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00��\x00\x00i\x00\x00\x00t��J��\x0c\x00\x04\x06\x00\x00\x04\x06\x00\x00\x08B', '\x00\x00���w5\x00\x13_�~P\x00\x1as=g<p�3)\\\x00x|�*�))5E\x12�K\x17���\x16�\x03vv', '��_�fJq���6��_t�-��\x01<�6!^��R©���.}��@\x17��b���c�\x03�0�\x07��M�y(���ꋆJ����', '�Ը�M��K���t5�fT�S�ͼ��Ez\x1b\x0c#���EM��m��<\x105��\x1e�#��9o\x1e&�|4\x05n\x14y��8\x12���!�h6\x0cm��0\x18�\x00�\x1a|M���Yr\x04�U�YY�q\x11��ٕ�k\x1d�J��@\x1a�hR���b��}*%Qk�0�g$ޛHM*d\x1a\x07?*�4�nv�\x00\x7f/���<�5�ι2�\x01.�H�w1����M�L��&Η\x01��{��F\x10�kU\x15�W\x0b�\x13-\x16��������(g\x11BŪT��\x08;��2�V�^��\x15\x01�:[�h��\x08�\x1aP']
+[wireshark_parser] Mapped to: {'source': None, 'destination': None, 'protocol': None, 'info': None, 'time': None}
+[wireshark_parser] Done. 0 artifacts inserted for case '51'.
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 228, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 119, in parse_wireshark_csv
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: File is a binary PCAP file, not a CSV export. Please export from Wireshark as CSV (File > Export Packet List > CSV) or use tshark to convert: tshark -r file.pcap -T csv > file.csv
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Stored path : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: File is a binary PCAP file, not a CSV export. Please export from Wireshark as CSV (File > Export Packet List > CSV) or use tshark to convert: tshark -r file.pcap -T csv > file.csv
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 228, in run
+    for artifact in parse_wireshark_csv(file_path, case_id, evidence_id_val):
+                    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 117, in parse_wireshark_csv
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: File is a binary PCAP file, not a CSV export. Please export from Wireshark as CSV (File > Export Packet List > CSV) or use tshark to convert: tshark -r file.pcap -T csv > file.csv
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Evidence ID   : 2
+[wireshark_parser] Case ID       : 51
+[wireshark_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\1773970068_ENCRYPTED_MSDU.PCAP
+[wireshark_parser] File exists   : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] ERROR: File is a binary PCAP file, not a CSV export. Please export from Wireshark as CSV (File > Export Packet List > CSV) or use tshark to convert: tshark -r file.pcap -T csv > file.csv
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Evidence ID   : 3
+[wireshark_parser] Case ID       : 51
+[wireshark_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776513457_wireshark_test.csv
+[wireshark_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776513457_wireshark_test.csv
+[wireshark_parser] File exists   : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] CSV columns detected: ['No.', 'Time', 'Source', 'Destination', 'Protocol', 'Length', 'Info']
+[wireshark_parser] Mapped to: {'source': 'Source', 'destination': 'Destination', 'protocol': 'Protocol', 'info': 'Info', 'time': 'Time'}
+[wireshark_parser] Done. 50 artifacts inserted for case '51'.
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] Evidence ID   : 4
+[wireshark_parser] Case ID       : 51
+[wireshark_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776514021_Wire shark as1.csv
+[wireshark_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776514021_Wire shark as1.csv
+[wireshark_parser] File exists   : True
+[wireshark_parser] Parsing for case '51'...
+[wireshark_parser] CSV columns detected: ['No.', 'Time', 'Source', 'Destination', 'Protocol', 'Length', 'Info']
+[wireshark_parser] Mapped to: {'source': 'Source', 'destination': 'Destination', 'protocol': 'Protocol', 'info': 'Info', 'time': 'Time'}
+[wireshark_parser] Done. 100 artifacts inserted for case '51'.
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[wireshark_parser] No evidence found with ID '51'.
+Unexpected error: no such table: evidence
+Unexpected error: no such table: evidence
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 23, in <module>
+    logging.FileHandler(log_file),
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\logging\__init__.py", line 1219, in __init__
+    StreamHandler.__init__(self, self._open())
+                                 ~~~~~~~~~~^^
+  File "C:\Users\Timothy\AppData\Local\Programs\Python\Python313\Lib\logging\__init__.py", line 1248, in _open
+    return open_func(self.baseFilename, self.mode,
+                     encoding=self.encoding, errors=self.errors)
+PermissionError: [Errno 13] Permission denied: 'C:\\xampp\\htdocs\\Forensics-Dashboard\\Forensics-Dashboard\\logs\\parser.log'
+Warning: Could not write to C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\..\logs\parser.log
+[2026-04-18 09:11:51,387] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 5
+[2026-04-18 09:11:51,390] [INFO] [Autopsy] Found database at: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\database.db
+[2026-04-18 09:11:51,394] [ERROR] [Autopsy] Unexpected error: no such table: evidence
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 201, in main
+    file_path, case_id = get_evidence_details(conn, evidence_id)
+                         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 50, in get_evidence_details
+    cursor.execute("SELECT file_path, case_id FROM evidence WHERE id = ?", (evidence_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: evidence
+Warning: Could not write to C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\..\logs\parser.log
+[2026-04-18 09:13:49,957] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 5
+[2026-04-18 09:13:49,958] [INFO] [Autopsy] Found database at: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\database.db
+[2026-04-18 09:13:49,963] [ERROR] [Autopsy] Unexpected error: no such table: evidence
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 218, in main
+    file_path, case_id = get_evidence_details(conn, evidence_id)
+                         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 50, in get_evidence_details
+    cursor.execute("SELECT file_path, case_id FROM evidence WHERE id = ?", (evidence_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: evidence
+Warning: Could not write to C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\logs\parser.log
+[2026-04-18 09:15:57,710] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 5
+[2026-04-18 09:15:57,714] [ERROR] [Autopsy] Unexpected error: no such table: evidence
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 233, in main
+    file_path, case_id = get_evidence_details(conn, evidence_id)
+                         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 81, in get_evidence_details
+    cursor.execute("SELECT file_path, case_id FROM evidence WHERE id = ?", (evidence_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: evidence
+Warning: Could not write to C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\logs\parser.log
+[2026-04-18 09:24:49,457] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 5
+[2026-04-18 09:24:49,461] [ERROR] [Autopsy] Unexpected error: no such table: evidence
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 235, in main
+    file_path, case_id = get_evidence_details(conn, evidence_id)
+                         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\autopsy_parser.py", line 83, in get_evidence_details
+    cursor.execute("SELECT file_path, case_id FROM evidence WHERE id = ?", (evidence_id,))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: evidence
+[autopsy_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\database.db
+[autopsy_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard
+[2026-04-18 09:27:40,720] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 5
+[2026-04-18 09:27:40,729] [INFO] [Autopsy] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv (case: 51)
+[2026-04-18 09:27:40,738] [INFO] [Autopsy] Updated evidence status to: processing
+[2026-04-18 09:27:40,739] [INFO] [Autopsy] Starting to parse Autopsy CSV file...
+[2026-04-18 09:27:40,739] [INFO] [Autopsy] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[2026-04-18 09:27:40,740] [INFO] [Autopsy] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[2026-04-18 09:27:40,741] [INFO] [Autopsy] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv (size: 6991 bytes)
+[2026-04-18 09:27:40,743] [INFO] [Autopsy] Successfully parsed 20 artifacts
+[2026-04-18 09:27:40,743] [INFO] [Autopsy] Saving 20 artifacts to database...
+[2026-04-18 09:27:40,746] [INFO] [Autopsy] Artifacts saved successfully
+[2026-04-18 09:27:40,749] [INFO] [Autopsy] Updated evidence status to: done with 20 artifacts
+[autopsy_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[autopsy_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[autopsy_parser] Evidence ID   : 5
+[autopsy_parser] Case ID       : 51
+[autopsy_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[autopsy_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[autopsy_parser] File exists   : True
+[2026-04-18 09:33:52,397] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 5
+[2026-04-18 09:33:52,410] [INFO] [Autopsy] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv (case: 51)
+[2026-04-18 09:33:52,420] [INFO] [Autopsy] Updated evidence status to: processing
+[2026-04-18 09:33:52,421] [INFO] [Autopsy] Starting to parse Autopsy CSV file...
+[2026-04-18 09:33:52,422] [INFO] [Autopsy] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[2026-04-18 09:33:52,423] [INFO] [Autopsy] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[2026-04-18 09:33:52,423] [INFO] [Autopsy] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv (size: 6991 bytes)
+[2026-04-18 09:33:52,426] [INFO] [Autopsy] Successfully parsed 20 artifacts
+[2026-04-18 09:33:52,426] [INFO] [Autopsy] Saving 20 artifacts to database...
+[2026-04-18 09:33:52,430] [INFO] [Autopsy] Artifacts saved successfully
+[2026-04-18 09:33:52,432] [INFO] [Autopsy] Updated evidence status to: done with 20 artifacts
+[autopsy_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[autopsy_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[autopsy_parser] Evidence ID   : 5
+[autopsy_parser] Case ID       : 51
+[autopsy_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[autopsy_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776528244_autopsy_test.csv
+[autopsy_parser] File exists   : True
+[2026-04-18 09:35:34,960] [INFO] [Guymager] Starting Guymager parser for evidence_id: 6
+[2026-04-18 09:35:34,968] [INFO] [Guymager] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv (case: 51)
+[2026-04-18 09:35:34,980] [INFO] [Guymager] Updated evidence status to: processing
+[2026-04-18 09:35:34,981] [INFO] [Guymager] Starting to parse Guymager CSV file...
+[2026-04-18 09:35:34,982] [INFO] [Guymager] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[2026-04-18 09:35:34,982] [INFO] [Guymager] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[2026-04-18 09:35:34,983] [INFO] [Guymager] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv (size: 3920 bytes)
+[2026-04-18 09:35:34,985] [INFO] [Guymager] Successfully parsed 15 artifacts
+[2026-04-18 09:35:34,986] [INFO] [Guymager] Saving 15 artifacts to database...
+[2026-04-18 09:35:34,989] [INFO] [Guymager] Artifacts saved successfully
+[2026-04-18 09:35:34,991] [INFO] [Guymager] Updated evidence status to: done with 15 artifacts
+[guymager_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[guymager_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[guymager_parser] Evidence ID   : 6
+[guymager_parser] Case ID       : 51
+[guymager_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[guymager_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[guymager_parser] File exists   : True
+[2026-04-18 09:37:34,048] [INFO] [Guymager] Starting Guymager parser for evidence_id: 6
+[2026-04-18 09:37:34,060] [INFO] [Guymager] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv (case: 51)
+[2026-04-18 09:37:34,064] [INFO] [Guymager] Updated evidence status to: processing
+[2026-04-18 09:37:34,065] [INFO] [Guymager] Starting to parse Guymager CSV file...
+[2026-04-18 09:37:34,066] [INFO] [Guymager] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[2026-04-18 09:37:34,066] [INFO] [Guymager] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[2026-04-18 09:37:34,067] [INFO] [Guymager] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv (size: 3920 bytes)
+[2026-04-18 09:37:34,069] [INFO] [Guymager] Successfully parsed 15 artifacts
+[2026-04-18 09:37:34,069] [INFO] [Guymager] Saving 15 artifacts to database...
+[2026-04-18 09:37:34,072] [INFO] [Guymager] Artifacts saved successfully
+[2026-04-18 09:37:34,074] [INFO] [Guymager] Updated evidence status to: done with 15 artifacts
+[guymager_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[guymager_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[guymager_parser] Evidence ID   : 6
+[guymager_parser] Case ID       : 51
+[guymager_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[guymager_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[guymager_parser] File exists   : True
+[2026-04-18 09:37:40,249] [INFO] [Guymager] Starting Guymager parser for evidence_id: 6
+[2026-04-18 09:37:40,259] [INFO] [Guymager] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv (case: 51)
+[2026-04-18 09:37:40,268] [INFO] [Guymager] Updated evidence status to: processing
+[2026-04-18 09:37:40,268] [INFO] [Guymager] Starting to parse Guymager CSV file...
+[2026-04-18 09:37:40,269] [INFO] [Guymager] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[2026-04-18 09:37:40,269] [INFO] [Guymager] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[2026-04-18 09:37:40,270] [INFO] [Guymager] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv (size: 3920 bytes)
+[2026-04-18 09:37:40,273] [INFO] [Guymager] Successfully parsed 15 artifacts
+[2026-04-18 09:37:40,274] [INFO] [Guymager] Saving 15 artifacts to database...
+[2026-04-18 09:37:40,277] [INFO] [Guymager] Artifacts saved successfully
+[2026-04-18 09:37:40,281] [INFO] [Guymager] Updated evidence status to: done with 15 artifacts
+[guymager_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[guymager_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[guymager_parser] Evidence ID   : 6
+[guymager_parser] Case ID       : 51
+[guymager_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[guymager_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530125_guymanager_test.csv
+[guymager_parser] File exists   : True
+[2026-04-18 09:39:18,791] [INFO] [Volatility] Starting Volatility parser for evidence_id: 7
+[2026-04-18 09:39:18,800] [INFO] [Volatility] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv (case: 51)
+[2026-04-18 09:39:18,810] [INFO] [Volatility] Updated evidence status to: processing
+[2026-04-18 09:39:18,811] [INFO] [Volatility] Starting to parse Volatility CSV file...
+[2026-04-18 09:39:18,811] [INFO] [Volatility] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[2026-04-18 09:39:18,811] [INFO] [Volatility] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[2026-04-18 09:39:18,812] [INFO] [Volatility] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv (size: 6962 bytes)
+[2026-04-18 09:39:18,814] [INFO] [Volatility] Successfully parsed 37 artifacts
+[2026-04-18 09:39:18,814] [INFO] [Volatility] Saving 37 artifacts to database...
+[2026-04-18 09:39:18,818] [INFO] [Volatility] Artifacts saved successfully
+[2026-04-18 09:39:18,820] [INFO] [Volatility] Updated evidence status to: done with 37 artifacts
+[volatility_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[volatility_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[volatility_parser] Evidence ID   : 7
+[volatility_parser] Case ID       : 51
+[volatility_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[volatility_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[volatility_parser] File exists   : True
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\volatility_parser.py", line 248
+    if value.strip():
+    ^^
+IndentationError: expected an indented block after 'if' statement on line 246
+[2026-04-18 09:42:48,080] [INFO] [Volatility] Starting Volatility parser for evidence_id: 7
+[2026-04-18 09:42:48,098] [INFO] [Volatility] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv (case: 51)
+[2026-04-18 09:42:48,106] [INFO] [Volatility] Updated evidence status to: processing
+[2026-04-18 09:42:48,107] [INFO] [Volatility] Starting to parse Volatility CSV file...
+[2026-04-18 09:42:48,108] [INFO] [Volatility] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[2026-04-18 09:42:48,109] [INFO] [Volatility] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[2026-04-18 09:42:48,110] [INFO] [Volatility] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv (size: 6962 bytes)
+[2026-04-18 09:42:48,112] [INFO] [Volatility] Successfully parsed 37 artifacts
+[2026-04-18 09:42:48,112] [INFO] [Volatility] Saving 37 artifacts to database...
+[2026-04-18 09:42:48,115] [INFO] [Volatility] Artifacts saved successfully
+[2026-04-18 09:42:48,119] [INFO] [Volatility] Updated evidence status to: done with 37 artifacts
+[volatility_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[volatility_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[volatility_parser] Evidence ID   : 7
+[volatility_parser] Case ID       : 51
+[volatility_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[volatility_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
+[volatility_parser] File exists   : True
