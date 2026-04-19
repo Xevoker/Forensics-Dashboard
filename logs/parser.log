@@ -86,3 +86,36 @@
 [2026-04-18 19:11:34,691] [INFO] [Autopsy] Saving 20 artifacts to database...
 [2026-04-18 19:11:34,694] [INFO] [Autopsy] Artifacts saved successfully
 [2026-04-18 19:11:34,696] [INFO] [Autopsy] Updated evidence status to: done with 20 artifacts
+[2026-04-18 20:38:03,218] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 9
+[2026-04-18 20:38:03,230] [INFO] [Autopsy] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv (case: 54)
+[2026-04-18 20:38:03,237] [INFO] [Autopsy] Updated evidence status to: processing
+[2026-04-18 20:38:03,237] [INFO] [Autopsy] Starting to parse Autopsy CSV file...
+[2026-04-18 20:38:03,238] [INFO] [Autopsy] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv
+[2026-04-18 20:38:03,238] [INFO] [Autopsy] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv
+[2026-04-18 20:38:03,239] [INFO] [Autopsy] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv (size: 6991 bytes)
+[2026-04-18 20:38:03,241] [INFO] [Autopsy] Successfully parsed 20 artifacts
+[2026-04-18 20:38:03,242] [INFO] [Autopsy] Saving 20 artifacts to database...
+[2026-04-18 20:38:03,246] [INFO] [Autopsy] Artifacts saved successfully
+[2026-04-18 20:38:03,251] [INFO] [Autopsy] Updated evidence status to: done with 20 artifacts
+[2026-04-18 20:38:59,040] [INFO] [Volatility] Starting Volatility parser for evidence_id: 12
+[2026-04-18 20:38:59,049] [INFO] [Volatility] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569928_volatility_test.csv (case: 54)
+[2026-04-18 20:38:59,055] [INFO] [Volatility] Updated evidence status to: processing
+[2026-04-18 20:38:59,056] [INFO] [Volatility] Starting to parse Volatility CSV file...
+[2026-04-18 20:38:59,056] [INFO] [Volatility] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569928_volatility_test.csv
+[2026-04-18 20:38:59,056] [INFO] [Volatility] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569928_volatility_test.csv
+[2026-04-18 20:38:59,057] [INFO] [Volatility] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569928_volatility_test.csv (size: 6962 bytes)
+[2026-04-18 20:38:59,059] [INFO] [Volatility] Successfully parsed 37 artifacts
+[2026-04-18 20:38:59,059] [INFO] [Volatility] Saving 37 artifacts to database...
+[2026-04-18 20:38:59,070] [INFO] [Volatility] Artifacts saved successfully
+[2026-04-18 20:38:59,072] [INFO] [Volatility] Updated evidence status to: done with 37 artifacts
+[2026-04-18 20:39:29,106] [INFO] [Guymager] Starting Guymager parser for evidence_id: 13
+[2026-04-18 20:39:29,120] [INFO] [Guymager] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569959_guymanager_test.csv (case: 54)
+[2026-04-18 20:39:29,129] [INFO] [Guymager] Updated evidence status to: processing
+[2026-04-18 20:39:29,129] [INFO] [Guymager] Starting to parse Guymager CSV file...
+[2026-04-18 20:39:29,130] [INFO] [Guymager] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569959_guymanager_test.csv
+[2026-04-18 20:39:29,130] [INFO] [Guymager] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569959_guymanager_test.csv
+[2026-04-18 20:39:29,131] [INFO] [Guymager] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569959_guymanager_test.csv (size: 3920 bytes)
+[2026-04-18 20:39:29,134] [INFO] [Guymager] Successfully parsed 15 artifacts
+[2026-04-18 20:39:29,135] [INFO] [Guymager] Saving 15 artifacts to database...
+[2026-04-18 20:39:29,138] [INFO] [Guymager] Artifacts saved successfully
+[2026-04-18 20:39:29,140] [INFO] [Guymager] Updated evidence status to: done with 15 artifacts

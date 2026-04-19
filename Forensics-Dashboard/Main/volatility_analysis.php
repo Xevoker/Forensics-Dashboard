@@ -222,8 +222,8 @@
         </div>
     </div>
     
-    // JavaScript for polling analysis status and filtering artifacts by file
     <script>
+        // JavaScript for polling analysis status and filtering artifacts by file
     (function () {
         const banner     = document.getElementById('parseStatusBanner');
         const inner      = document.getElementById('parseStatusInner');
@@ -274,8 +274,7 @@
             poll();
         });
     })();
-
-    // Filters the artifacts table based on the selected evidence file
+                    
     function filterArtifactsByFile(fileName) {
         const rows = document.querySelectorAll('#artifactsTable tbody tr');
         rows.forEach(row => {
