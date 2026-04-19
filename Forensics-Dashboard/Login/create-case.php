@@ -1,4 +1,5 @@
 <?php
+//  create-case.php - Allows users to create a new case 
 require '../db.php';
 require_once '../logs/logger.php';
 
@@ -12,14 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $case_id = trim($_POST["case_id"]);
     $case_password = password_hash($_POST["case_password"], PASSWORD_DEFAULT);
     $case_name = trim($_POST["case_name"]);
-    $investigator = $_SESSION["user_id"]; // Autho-assign creator
+    $investigator = $_SESSION["user_id"]; // Assigns creator as investigator for the case
 
+    // Validates input and attempts to create a new case in the database
     if (!empty($case_id) && !empty($_POST["case_password"]) && !empty($case_name)) {
         try {
             $stmt = $db->prepare("INSERT INTO cases (case_id, case_password, case_name, investigator) VALUES (?, ?, ?, ?)");
             $stmt->execute([$case_id, $case_password, $case_name, $investigator]);
 
-            // Redirect to USER case-login page
+            // Redirect to case-login page after successful case creation
             logAction($_SESSION["user_id"], "Created New Case", "create-case.php");
             header("Location: case-login.php");
             exit();
@@ -39,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Create Case</title>
     <link href="../css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-dark">
 

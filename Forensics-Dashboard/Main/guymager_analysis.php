@@ -13,7 +13,7 @@
     $current_case = $_SESSION['case_id'] ?? 'None';
     $analysis_message = "";
     $analysis_status = "";
-
+    // Check for status messages from analysis
     if (isset($_GET['analysis'])) {
         switch ($_GET['analysis']) {
             case 'started':
@@ -26,7 +26,7 @@
                 break;
         }
     }
-
+    // Handle form submission to run analysis
     if (isset($_POST['run_analysis'])) {
         $evidence_id = $_POST['evidence_id'] ?? null;
         $scriptPath = realpath(__DIR__ . '/../scripts/guymager_parser.py');
@@ -36,7 +36,7 @@
             $analysis_message = "Error: Please select an evidence file to analyze.";
         } elseif ($scriptPath && file_exists($scriptPath)) {
             $db = null;
-
+            // Run the Python script in the background
             if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
                 $configPath = __DIR__ . '\\..\\..\\config.ini';
                 $config = file_exists($configPath) ? parse_ini_file($configPath, true) : [];
@@ -80,9 +80,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Guymager Analysis</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -225,7 +223,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     (function () {
         const banner     = document.getElementById('parseStatusBanner');
@@ -233,7 +230,7 @@
         const POLL_MS    = 3000;
         let pollTimer    = null;
         let currentEvidenceId = null;
-
+        // Define status label content based on analysis status
         function statusLabel(data) {
             switch (data.status) {
                 case 'processing':
@@ -249,7 +246,7 @@
                     return null;
             }
         }
-
+        // Polling function to check analysis status
         function poll() {
             if (!currentEvidenceId) return;
             fetch(`../includes/check_status.php?evidence_id=${currentEvidenceId}`)
@@ -267,7 +264,7 @@
                 })
                 .catch(err => console.error('Poll error:', err));
         }
-
+        // Start polling when the form is submitted
         document.querySelector('form')?.addEventListener('submit', (e) => {
             currentEvidenceId = document.getElementById('evidenceSelect').value;
             if (pollTimer) clearInterval(pollTimer);
@@ -275,7 +272,7 @@
             poll();
         });
     })();
-
+    // Function to filter artifacts by selected evidence file
     function filterArtifactsByFile(fileName) {
         const rows = document.querySelectorAll('#artifactsTable tbody tr');
         rows.forEach(row => {

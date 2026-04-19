@@ -2,7 +2,7 @@
 // Set Timezone to our location - Problems with incorrect timezone
 date_default_timezone_set('America/Los_Angeles');
 
-//define a secret key for HMAC signing of log entries. The logAction function formats and writes user activity logs to a file, including an HMAC for integrity verification.
+// Define a secret key for HMAC signing of log entries. The logAction function formats and writes user activity logs to a file, including an HMAC for integrity verification.
 define('LOG_HMAC_SECRET', 'your-secret-key-here');
 
 // Logs user actions with a timestamp, username, IP address, session ID, action description, and page. Each log entry is signed with an HMAC to prevent tampering.

@@ -1,11 +1,10 @@
+# Wireshark Parser - Extract artifacts from Wireshark CSV exports
+# Parses CSV files generated from Wireshark packet list exports
+
 import sys
 import sqlite3
 import csv
 import os
-
-# Fix Windows console encoding issues with Unicode characters
-if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 # ─── Config ───────────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -29,11 +28,7 @@ def find_db(start_dir, filename='database.db', max_levels=5):
         f"Make sure the database exists and this script is inside your project folder."
     )
 
-DB_PATH      = find_db(SCRIPT_DIR)
-PROJECT_ROOT = os.path.dirname(DB_PATH)
-print(f"[wireshark_parser] DB path     : {DB_PATH}")
-print(f"[wireshark_parser] Project root: {PROJECT_ROOT}")
-# ──────────────────────────────────────────────────────────────────────────────
+DB_PATH      = "../../database.db"
 
 def get_connection():
     conn = sqlite3.connect(DB_PATH, timeout=10)
@@ -82,9 +77,6 @@ def resolve_path(stored_path):
         if parent == current:
             break
         current = parent
-
-    # Last resort: return PROJECT_ROOT join so error message shows a useful path
-    return os.path.join(PROJECT_ROOT, tail)
 
 def detect_columns(header_row):
     """

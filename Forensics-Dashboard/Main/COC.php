@@ -8,6 +8,7 @@
     }
     logAction($_SESSION['user_id'], "User Accessed Chain of Custody", "COC.php");
 
+    // Initialize variables for logs and users
     $current_case = $_SESSION['case_id'] ?? null;
     $activity_logs = [];
     $all_logs = [];
@@ -18,6 +19,7 @@
         // Read and parse the user_activity.log file
         $log_file = '../logs/user_activity.log';
         
+        // Check if log file exists before attempting to read
         if (file_exists($log_file)) {
             $lines = file($log_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
             
@@ -39,7 +41,6 @@
                 }
             }
         }
-        
         // Filter logs based on selected user
         if ($selected_user === 'all') {
             $activity_logs = $all_logs;
@@ -52,7 +53,7 @@
 
     // Function to parse a log line
     function parseLogLine($line) {
-        // Match pattern: [timestamp] key=value key=value ...
+        // Match pattern
         if (!preg_match('/\[([^\]]+)\]\s(.*)/', $line, $matches)) {
             return null;
         }
@@ -88,9 +89,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Chain of Custody</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
     <?php include '../includes/navbar.php'; ?>
@@ -182,10 +181,5 @@
             <?php include '../includes/footer.php'; ?>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-    <script src="../js/scripts.js"></script>
-    <script src="../js/datatables-simple-demo.js"></script>
 </body>
 </html>

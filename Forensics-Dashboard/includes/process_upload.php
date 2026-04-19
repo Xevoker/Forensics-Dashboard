@@ -1,3 +1,4 @@
+<!-- Handles File Uploads for Evidence -->
 <?php
     require '../db.php';
 
@@ -5,10 +6,11 @@
     $case_id = $_SESSION['case_id'];
     $source = $_POST['source_program'];
     
-    // Create case-specific upload directory: uploads/case_ID/
+    // Create case-specific upload directory: uploads/case_ID/ if it doesn't exist
     $uploadsDir = realpath(__DIR__ . '/../uploads') . DIRECTORY_SEPARATOR;
     $caseDir = $uploadsDir . 'case_' . $case_id . DIRECTORY_SEPARATOR;
     
+    // Cheks File existance
     if (!file_exists($uploadsDir)) {
         mkdir($uploadsDir, 0777, true);
     }
@@ -16,11 +18,12 @@
         mkdir($caseDir, 0777, true);
     }
 
+    // Handle file upload
     $fileName = basename($_FILES["evidence_file"]["name"]);
     $targetFilePath = $caseDir . time() . "_" . $fileName; // Add timestamp to prevent overwriting
 
     if (move_uploaded_file($_FILES["evidence_file"]["tmp_name"], $targetFilePath)) {
-        // Compute SHA256 hash of the uploaded file
+        // Compute SHA256 hash of the uploaded file for integrity verification
         $file_hash = hash_file('sha256', $targetFilePath);
         
         // Insert record into the 'evidence' table

@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-"""
-Guymager Parser - Extract artifacts from Guymager imaging logs
-Parses CSV files from Guymager forensic imaging tool (disk imaging, hash verification, sector data)
-"""
+# Guymager Parser - Extract artifacts from Guymager imaging logs
+# Parses CSV files from Guymager forensic imaging tool (disk imaging, hash verification, sector data)
 
 import sys
 import csv
@@ -15,7 +12,7 @@ from datetime import datetime
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def find_db(start_dir, filename='database.db', max_levels=5):
-    """Walk up the directory tree until database.db with evidence table is found"""
+    # Walk up the directory tree until database.db with evidence table is found
     current = start_dir
     for _ in range(max_levels):
         candidate = os.path.join(current, filename)
@@ -39,7 +36,7 @@ def find_db(start_dir, filename='database.db', max_levels=5):
         f"Could not find '{filename}' with 'evidence' table within {max_levels} levels above: {start_dir}"
     )
 
-DB_PATH      = find_db(SCRIPT_DIR)
+DB_PATH      = "../../database.db"
 PROJECT_ROOT = os.path.dirname(DB_PATH)
 print(f"[guymager_parser] DB path     : {DB_PATH}")
 print(f"[guymager_parser] Project root: {PROJECT_ROOT}")
@@ -62,7 +59,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def resolve_path(stored_path):
-    """Find the uploaded file regardless of how PHP stored the path."""
+    # Find the uploaded file regardless of how PHP stored the path.
     # Already absolute and exists — use it directly
     if os.path.isabs(stored_path) and os.path.exists(stored_path):
         return stored_path
@@ -88,7 +85,7 @@ def resolve_path(stored_path):
     return os.path.join(PROJECT_ROOT, tail)
 
 def get_evidence_details(conn, evidence_id):
-    """Get evidence file path and case_id from database"""
+    # Get evidence file path and case_id from database
     cursor = conn.cursor()
     cursor.execute("SELECT file_path, case_id FROM evidence WHERE id = ?", (evidence_id,))
     result = cursor.fetchone()
@@ -97,7 +94,7 @@ def get_evidence_details(conn, evidence_id):
     return None, None
 
 def parse_guymager_csv(file_path, case_id, evidence_id, conn):
-    """Parse Guymager CSV export and extract imaging artifacts"""
+    # Parse Guymager CSV export and extract imaging artifacts
     # Resolve the file path
     resolved_path = resolve_path(file_path)
     logger.info(f"Stored path: {file_path}")
@@ -199,7 +196,7 @@ def parse_guymager_csv(file_path, case_id, evidence_id, conn):
     return artifacts
 
 def save_artifacts(conn, artifacts):
-    """Save extracted artifacts to database"""
+    # Save extracted artifacts to database
     cursor = conn.cursor()
     for artifact in artifacts:
         cursor.execute("""
@@ -217,7 +214,7 @@ def save_artifacts(conn, artifacts):
     conn.commit()
 
 def update_evidence_status(conn, evidence_id, status, artifact_count):
-    """Update evidence parsing status and artifact count"""
+    # Update evidence parsing status and artifact count
     cursor = conn.cursor()
     cursor.execute(
         "UPDATE evidence SET parse_status = ?, artifact_count = ? WHERE id = ?",

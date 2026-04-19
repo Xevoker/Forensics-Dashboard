@@ -48,9 +48,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Timeline</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
     <?php include '../includes/navbar.php'; ?>
@@ -136,9 +134,8 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script>
+    // Initialize charts with data from PHP
     (function () {
         const timelineLabels = <?php echo json_encode($timeline_labels); ?>;
         const timelineCounts = <?php echo json_encode($timeline_counts); ?>;
@@ -146,79 +143,80 @@
         const typeCounts = <?php echo json_encode($type_counts); ?>;
 
         const ctxTimeline = document.getElementById('timelineChart');
-if (ctxTimeline && timelineLabels.length) {
-    new Chart(ctxTimeline, {
-        type: 'line',
-        data: {
-            labels: <?php echo json_encode($timeline_labels); ?>,
-            datasets: [{
-                label: 'Evidence Uploaded',
-                data: <?php echo json_encode($timeline_counts); ?>,
-                fill: false,
-                borderColor: 'rgba(78,115,223,1)',
-                backgroundColor: 'rgba(78,115,223,1)',
-                pointBackgroundColor: 'rgba(78,115,223,1)',
-                pointRadius: 6,
-                pointHoverRadius: 8,
-                showLine: true,
-                tension: 0
-            }]
-        },
-        options: {
-            tooltips: {
-                callbacks: {
-                    // Show the filename in the tooltip on hover
-                    title: function(tooltipItems) {
-                        return <?php echo json_encode($timeline_names); ?>[tooltipItems[0].index];
-                    },
-                    label: function(tooltipItem) {
-                        return 'Uploaded: ' + tooltipItem.xLabel;
-                    }
-                }
-            },
-            scales: {
-                xAxes: [{
-                    display: true,
-                    ticks: {
-                        maxRotation: 45,
-                        minRotation: 45,
-                        autoSkip: true,
-                        maxTicksLimit: 10
-                    }
-                }],
-                yAxes: [{
-                    display: false  // y axis hidden since all values are 1
+        // Only render the timeline chart if there are labels to display
+    if (ctxTimeline && timelineLabels.length) {
+        new Chart(ctxTimeline, {
+            type: 'line',
+            data: {
+                labels: <?php echo json_encode($timeline_labels); ?>,
+                datasets: [{
+                    label: 'Evidence Uploaded',
+                    data: <?php echo json_encode($timeline_counts); ?>,
+                    fill: false,
+                    borderColor: 'rgba(78,115,223,1)',
+                    backgroundColor: 'rgba(78,115,223,1)',
+                    pointBackgroundColor: 'rgba(78,115,223,1)',
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    showLine: true,
+                    tension: 0
                 }]
-            }
-        }
-    });
-} else if (ctxTimeline) {
-    // No uploads yet — show message inside canvas area
-    const ctx = ctxTimeline.getContext('2d');
-    ctx.font = '14px sans-serif';
-    ctx.fillStyle = '#aaa';
-    ctx.textAlign = 'center';
-    ctx.fillText('No evidence uploads yet for this case', ctxTimeline.width / 2, ctxTimeline.height / 2);
-}
-
-        const ctxType = document.getElementById('typeChart');
-        if (ctxType && typeLabels.length) {
-            new Chart(ctxType, {
-                type: 'doughnut',
-                data: {
-                    labels: typeLabels,
-                    datasets: [{
-                        data: typeCounts,
-                        backgroundColor: ['#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#4e73df'],
-                        borderWidth: 1,
-                    }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        // Show the filename in the tooltip on hover
+                        title: function(tooltipItems) {
+                            return <?php echo json_encode($timeline_names); ?>[tooltipItems[0].index];
+                        },
+                        label: function(tooltipItem) {
+                            return 'Uploaded: ' + tooltipItem.xLabel;
+                        }
+                    }
                 },
-                options: {
-                    legend: { position: 'bottom' }
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45,
+                            autoSkip: true,
+                            maxTicksLimit: 10
+                        }
+                    }],
+                    yAxes: [{
+                        display: false  // y axis hidden since all values are 1
+                    }]
                 }
-            });
-        }
-    })();
+            }
+        });
+        // If there are no timeline events, display a message on the canvas
+    } else if (ctxTimeline) {
+        const ctx = ctxTimeline.getContext('2d');
+        ctx.font = '14px sans-serif';
+        ctx.fillStyle = '#aaa';
+        ctx.textAlign = 'center';
+        ctx.fillText('No evidence uploads yet for this case', ctxTimeline.width / 2, ctxTimeline.height / 2);
+    }
+
+            const ctxType = document.getElementById('typeChart');
+            if (ctxType && typeLabels.length) {
+                new Chart(ctxType, {
+                    type: 'doughnut',
+                    data: {
+                        labels: typeLabels,
+                        datasets: [{
+                            data: typeCounts,
+                            backgroundColor: ['#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#4e73df'],
+                            borderWidth: 1,
+                        }]
+                    },
+                    options: {
+                        legend: { position: 'bottom' }
+                    }
+                });
+            }
+        })();
     </script>
 </body>
 </html>

@@ -80,9 +80,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Autopsy Analysis</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -223,8 +221,8 @@
             <?php include '../includes/footer.php'; ?>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    // JavaScript for polling analysis status and filtering artifacts by file
     <script>
     (function () {
         const banner     = document.getElementById('parseStatusBanner');
@@ -232,7 +230,8 @@
         const POLL_MS    = 3000;
         let pollTimer    = null;
         let currentEvidenceId = null;
-
+        
+        // Function to determine the status label based on the response from the server
         function statusLabel(data) {
             switch (data.status) {
                 case 'processing':
@@ -248,7 +247,8 @@
                     return null;
             }
         }
-
+        
+        // Checks status and refreshs to update listing when done
         function poll() {
             if (!currentEvidenceId) return;
             fetch(`../includes/check_status.php?evidence_id=${currentEvidenceId}`)
@@ -274,7 +274,8 @@
             poll();
         });
     })();
-
+    
+    // Filters the artifacts table based on the selected evidence file
     function filterArtifactsByFile(fileName) {
         const rows = document.querySelectorAll('#artifactsTable tbody tr');
         rows.forEach(row => {

@@ -46,40 +46,27 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <!--
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    -->
     <title>Case Management</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
-    <!-- Copies navbar onto all pages -->
     <?php include '../includes/navbar.php'; ?>
 
     <div id="layoutSidenav">
-        <!-- Copies side navbar onto all pages -->
         <?php include '../includes/sidebar.php'; ?>
 
-    <!-- MAIN CONTENT -->
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
 
                 <h1 class="mt-4">Case Management</h1>
-
-                <!-- ADD CASE BUTTON -->
                 <div class="mb-3">
                     <a href="../Login/create-case.php" class="btn btn-primary">
                         <i class="fas fa-plus"></i> Add New Case
                     </a>
                 </div>
 
-                <!-- Total, Open, and Completed Case Banner -->
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card bg-primary text-white mb-4">
@@ -98,7 +85,6 @@
                     </div>
                 </div>
                 
-                <!-- Toggle Case Status and Delete Case Buttons -->
                 <div class="row">
                     <form method="POST" onsubmit="return confirm('Are you sure?');" style="display:inline;">
                         <input type="hidden" name="current_status" value="<?php echo $current_case['status']; ?>">
@@ -107,7 +93,6 @@
                     </form>
                 </div>
 
-                <!-- CASE TABLE -->
                 <div class="card mb-4">
                     <div class="card-header">All Cases</div>
                     <div class="card-body">
@@ -154,11 +139,5 @@
         <?php include '../includes/footer.php'; ?>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/datatables-simple-demo.js"></script>
-
 </body>
 </html>

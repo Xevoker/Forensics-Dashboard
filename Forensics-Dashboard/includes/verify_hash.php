@@ -1,10 +1,8 @@
 <?php
-/**
- * verify_hash.php
- * Verify file integrity by comparing stored hash with current file hash
- */
+// Checks the hash of a file against the stored hash to verify integrity.
 require '../db.php';
 
+// Tells that the response will be in a JSON
 header('Content-Type: application/json');
 
 if (!isset($_SESSION['case_id']) || !isset($_POST['evidence_id'])) {
@@ -20,6 +18,7 @@ $stmt = $db->prepare("SELECT id, file_path, file_hash, file_name FROM evidence W
 $stmt->execute([$evidence_id, $case_id]);
 $evidence = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// If no evidence found, return an error
 if (!$evidence) {
     echo json_encode(['success' => false, 'error' => 'Evidence file not found']);
     exit;

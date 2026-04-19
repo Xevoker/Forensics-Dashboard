@@ -1,21 +1,26 @@
 <?php
+//  Case Login Page - Allows users to log into a specific case using case ID and password.
 require '../db.php';
 require_once '../logs/logger.php';
 
+// Check if user is logged in, if not redirect to login page
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
 }
+//Action Logger found on most pages
 logAction($_SESSION["user_id"], "Accessed Case Login Page", "case-login.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $case_id = trim($_POST["case_id"]);
     $case_password = $_POST["case_password"];
 
+    // Retrieve case record from the database
     $stmt = $db->prepare("SELECT * FROM cases WHERE case_id = ?");
     $stmt->execute([$case_id]);
     $case = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Verify case password and log in if valid
     if ($case && password_verify($case_password, $case["case_password"])) {
         $_SESSION["case_id"] = $case["case_id"];
         logAction($_SESSION["user_id"], "User Successfully Logged Into Case" . $case["case_id"], "case-login.php");
@@ -33,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Case Login</title>
     <link href="../css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-secondary">
     <div class="container mt-5">

@@ -11,9 +11,8 @@
     $current_case = $_SESSION['case_id'] ?? null;
     $artifacts = [];
     $evidence_files = [];
-
+    // Get evidence and artifacts for the current case
     if ($current_case) {
-        // Get artifacts (extracted data)
         $query = "SELECT a.*, e.file_name, e.source_program 
                   FROM artifacts a 
                   JOIN evidence e ON a.evidence_id = e.id 
@@ -36,9 +35,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Evidence</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="../css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
     <?php include '../includes/navbar.php'; ?>
@@ -138,10 +135,5 @@
             <?php include '../includes/footer.php'; ?>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<!-- File Contains the navbar for the dashboard and all other pages. -->
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand ps-3" href="dashboard.php">Forensics System</a>
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">

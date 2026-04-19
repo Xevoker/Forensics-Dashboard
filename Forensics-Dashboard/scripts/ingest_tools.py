@@ -1,4 +1,4 @@
-#Exports data from csv files and slaps it into the dashboard when run.
+#Exports data from csv files and slaps it into the pages when run.
 import sqlite3
 import csv
 import os
@@ -19,5 +19,3 @@ def ingest_csv(tool_name, file_path):
     conn.commit()
     conn.close()
     print(f"Success! {tool_name} data moved to Dashboard.")
-
-# Example: ingest_csv('Wireshark', 'network_logs.csv')

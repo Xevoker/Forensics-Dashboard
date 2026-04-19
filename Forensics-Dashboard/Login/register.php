@@ -2,6 +2,7 @@
 require '../db.php';
 require_once '../logs/logger.php';
 
+// Check if user is already exists, if not creates the new user
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = trim($_POST["user_id"]);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
@@ -24,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Register</title>
     <link href="../css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-dark">
 <div class="container mt-5">

@@ -1,4 +1,5 @@
 <?php
+// logout.php - ends session
     require_once '../logs/logger.php';
     
     session_start();

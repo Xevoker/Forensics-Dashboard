@@ -1,3 +1,4 @@
+<!-- This file contains the form for uploading evidence files to the system. It includes a dropdown to select the source program and a file input for selecting the evidence file. The form uses AJAX to submit the file without refreshing the page and displays a progress bar during the upload process. -->
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-file-upload me-1"></i> Upload Evidence to Case: <strong><?php echo htmlspecialchars($_SESSION['case_id']); ?></strong>
@@ -30,7 +31,9 @@
 </div>
 
 <script>
+// Js function to handle the file upload process using AJAX
 function uploadFile() {
+    // Check if a file is selected and it exists
     var fileInput = document.getElementById('evidence_file');
     if (fileInput.files.length === 0) {
         alert("Please select a file first.");
@@ -43,6 +46,7 @@ function uploadFile() {
     document.getElementById('progressContainer').style.display = 'block';
     document.getElementById('uploadStatus').innerHTML = "Uploading...";
 
+    // Progress bar update, calculates percentage done and displays it
     xhr.upload.addEventListener("progress", function(e) {
         if (e.lengthComputable) {
             var pc = Math.round((e.loaded / e.total) * 100);
@@ -51,11 +55,12 @@ function uploadFile() {
         }
     });
 
+    // Handle response from the server after upload is complete
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
                 document.getElementById('uploadStatus').innerHTML = "<div class='alert alert-success'>File uploaded successfully!</div>";
-                // Optional: Refresh the page after 2 seconds to show new data
+                // Refresh the page to show the new file has been added
                 setTimeout(() => { location.reload(); }, 2000);
             } else {
                 document.getElementById('uploadStatus').innerHTML = "<div class='alert alert-danger'>Error: " + xhr.responseText + "</div>";

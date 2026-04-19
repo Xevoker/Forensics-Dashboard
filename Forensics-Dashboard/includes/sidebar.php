@@ -1,4 +1,4 @@
-<!-- SIDEBAR -->
+<!-- Handles the sidebar navigation for the dashboard and all other pages -->
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">

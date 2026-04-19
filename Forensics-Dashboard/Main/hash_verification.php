@@ -18,15 +18,8 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Hash Verification - Forensics Dashboard" />
-        <meta name="author" content="" />
         <title>Hash Verification - Forensics Dashboard</title>
-        <title>Hash Verification - Forensics Dashboard</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="../css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
     <body class="sb-nav-fixed">
         <?php include '../includes/navbar.php'; ?>
@@ -109,7 +102,6 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
 
-        <!-- Hash Verification Modal -->
         <div class="modal fade" id="hashVerificationModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -132,7 +124,6 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
 
-        <!-- View Hash Modal -->
         <div class="modal fade" id="viewHashModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -149,19 +140,16 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-        <script src="../js/scripts.js"></script>
-        <script src="../js/datatables-simple-demo.js"></script>
         <script>
+        // JavaScript functions to handle hash verification and viewing stored hash
         function verifyHash(evidenceId, fileName) {
-            // Show modal
             const modal = new bootstrap.Modal(document.getElementById('hashVerificationModal'));
             const content = document.getElementById('hashVerificationContent');
             
+            // Show loading state in modal
             modal.show();
             
-            // Send verification request
+            // Send verification request throough verify_hash.php 
             fetch('../includes/verify_hash.php', {
                 method: 'POST',
                 headers: {
@@ -177,6 +165,7 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     const statusIcon = isValid ? 'fa-check-circle text-success' : 'fa-exclamation-triangle text-danger';
                     const statusText = isValid ? 'File Integrity Verified' : 'File Integrity Compromised';
                     
+                    // Display verification results in the modal
                     content.innerHTML = `
                         <div class="alert ${statusClass}">
                             <h6><i class="fas ${statusIcon} me-2"></i>${statusText}</h6>
@@ -229,7 +218,7 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 `;
             });
         }
-
+        // Function to display the stored hash in a modal
         function viewHash(evidenceId, fileName, storedHash) {
             const modal = new bootstrap.Modal(document.getElementById('viewHashModal'));
             const content = document.getElementById('viewHashContent');
@@ -248,7 +237,7 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             modal.show();
         }
-        
+        // Utility function to escape HTML special characters to prevent XSS
         function escapeHtml(text) {
             const map = {
                 '&': '&amp;',
@@ -260,6 +249,7 @@ $evidence_files = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return text.replace(/[&<>"']/g, m => map[m]);
         }
         
+        // Utility function to format bytes
         function formatBytes(bytes) {
             if (bytes === 0) return '0 Bytes';
             const k = 1024;

@@ -407,3 +407,46 @@ IndentationError: expected an indented block after 'if' statement on line 246
 [volatility_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
 [volatility_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_51\1776530321_volatility_test.csv
 [volatility_parser] File exists   : True
+[2026-04-18 19:11:34,668] [INFO] [Autopsy] Starting Autopsy parser for evidence_id: 9
+[2026-04-18 19:11:34,676] [INFO] [Autopsy] Found evidence file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv (case: 54)
+[2026-04-18 19:11:34,682] [INFO] [Autopsy] Updated evidence status to: processing
+[2026-04-18 19:11:34,683] [INFO] [Autopsy] Starting to parse Autopsy CSV file...
+[2026-04-18 19:11:34,683] [INFO] [Autopsy] Stored path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv
+[2026-04-18 19:11:34,684] [INFO] [Autopsy] Resolved path: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv
+[2026-04-18 19:11:34,684] [INFO] [Autopsy] Opening file: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv (size: 6991 bytes)
+[2026-04-18 19:11:34,690] [INFO] [Autopsy] Successfully parsed 20 artifacts
+[2026-04-18 19:11:34,691] [INFO] [Autopsy] Saving 20 artifacts to database...
+[2026-04-18 19:11:34,694] [INFO] [Autopsy] Artifacts saved successfully
+[2026-04-18 19:11:34,696] [INFO] [Autopsy] Updated evidence status to: done with 20 artifacts
+[autopsy_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\database.db
+[autopsy_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard
+[autopsy_parser] Evidence ID   : 9
+[autopsy_parser] Case ID       : 54
+[autopsy_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv
+[autopsy_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776564686_autopsy_test.csv
+[autopsy_parser] File exists   : True
+[wireshark_parser] DB path     : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\database.db
+[wireshark_parser] Project root: C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard
+Traceback (most recent call last):
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 253, in <module>
+    run(sys.argv[1])
+    ~~~^^^^^^^^^^^^^
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 192, in run
+    row = get_evidence_details(conn, evidence_id)
+  File "C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\scripts\wireshark_parser.py", line 41, in get_evidence_details
+    cur = conn.execute(
+        """SELECT id, case_id, file_path FROM evidence WHERE id = ?""",
+        (evidence_id,)
+    )
+sqlite3.OperationalError: no such table: evidence
+[wireshark_parser] DB path     : ../../database.db
+[wireshark_parser] Project root: ../..
+[wireshark_parser] Evidence ID   : 10
+[wireshark_parser] Case ID       : 54
+[wireshark_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776568099_wireshark_test.csv
+[wireshark_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776568099_wireshark_test.csv
+[wireshark_parser] File exists   : True
+[wireshark_parser] Parsing for case '54'...
+[wireshark_parser] CSV columns detected: ['No.', 'Time', 'Source', 'Destination', 'Protocol', 'Length', 'Info']
+[wireshark_parser] Mapped to: {'source': 'Source', 'destination': 'Destination', 'protocol': 'Protocol', 'info': 'Info', 'time': 'Time'}
+[wireshark_parser] Done. 50 artifacts inserted for case '54'.
