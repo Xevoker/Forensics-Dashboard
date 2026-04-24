@@ -510,3 +510,21 @@ sqlite3.OperationalError: no such table: evidence
 [guymager_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569959_guymanager_test.csv
 [guymager_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_54\1776569959_guymanager_test.csv
 [guymager_parser] File exists   : True
+[wireshark_parser] Evidence ID   : 14
+[wireshark_parser] Case ID       : 55
+[wireshark_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_55\1777058779_Wireshark_File.csv
+[wireshark_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_55\1777058779_Wireshark_File.csv
+[wireshark_parser] File exists   : True
+[wireshark_parser] Parsing for case '55'...
+[wireshark_parser] CSV columns detected: ['No.', 'Time', 'Source', 'Destination', 'Protocol', 'Length', 'Info']
+[wireshark_parser] Mapped to: {'source': 'Source', 'destination': 'Destination', 'protocol': 'Protocol', 'info': 'Info', 'time': 'Time'}
+[wireshark_parser] Done. 100 artifacts inserted for case '55'.
+[wireshark_parser] Evidence ID   : 15
+[wireshark_parser] Case ID       : 56
+[wireshark_parser] Stored path   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_56\1777059185_Wireshark_File.csv
+[wireshark_parser] Resolved to   : C:\xampp\htdocs\Forensics-Dashboard\Forensics-Dashboard\uploads\case_56\1777059185_Wireshark_File.csv
+[wireshark_parser] File exists   : True
+[wireshark_parser] Parsing for case '56'...
+[wireshark_parser] CSV columns detected: ['No.', 'Time', 'Source', 'Destination', 'Protocol', 'Length', 'Info']
+[wireshark_parser] Mapped to: {'source': 'Source', 'destination': 'Destination', 'protocol': 'Protocol', 'info': 'Info', 'time': 'Time'}
+[wireshark_parser] Done. 100 artifacts inserted for case '56'.

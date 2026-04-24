@@ -1,0 +1,101 @@
+No.,Time,Source,Destination,Protocol,Length,Info
+1,0,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+2,0.000004,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+3,0.000191,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+4,0.000195,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+5,0.000439,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=2049 Win=17520 Len=0
+6,0.00082,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+7,0.000824,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+8,0.000829,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+9,0.001072,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+10,0.001111,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+11,0.001222,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=4097 Win=17520 Len=0
+12,0.001717,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+13,0.001722,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+14,0.001727,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+15,0.001945,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+16,0.001951,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+17,0.002085,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=6145 Win=17520 Len=0
+18,0.002538,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+19,0.002544,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+20,0.002548,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+21,0.00273,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+22,0.002772,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+23,0.003903,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+24,0.003909,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=8193 Win=17520 Len=0
+25,0.004059,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+26,0.004064,192.168.100.51,192.168.100.52,TCP,1540,"[TCP Retransmission] 20  >  1075 [PSH, ACK] Seq=8193 Ack=1 Win=65535 Len=1460"
+27,0.004068,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+28,0.004275,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+29,0.00432,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+30,0.004416,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=10241 Win=17520 Len=0
+31,0.004838,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+32,0.004842,192.168.100.51,192.168.100.52,FTP-DATA,1104,FTP Data: 1024 bytes
+33,0.004845,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+34,0.005172,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+35,0.005177,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+36,0.00529,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=12725 Win=17520 Len=0
+37,0.005609,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+38,0.005613,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+39,0.005617,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+40,0.005951,192.168.100.51,192.168.100.52,FTP-DATA,1104,FTP Data: 1024 bytes
+41,0.005955,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+42,0.006067,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=14337 Win=17520 Len=0
+43,0.006576,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+44,0.00658,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+45,0.006584,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+46,0.006845,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+47,0.006849,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+48,0.006976,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=16385 Win=17520 Len=0
+49,0.007407,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+50,0.007413,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+51,0.007418,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+52,0.007657,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+53,0.007663,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+54,0.007795,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=18433 Win=17520 Len=0
+55,0.008186,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+56,0.008189,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+57,0.008194,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+58,0.008469,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+59,0.008541,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+60,0.008609,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=20481 Win=17520 Len=0
+61,0.010583,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+62,0.010588,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+63,0.010592,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+64,0.010595,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+65,0.0106,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+66,0.010603,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=22529 Win=17520 Len=0
+67,0.01074,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+68,0.010743,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+69,0.010749,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+70,0.01099,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+71,0.010994,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+72,0.012629,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+73,0.012634,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+74,0.01283,Cisco_fa:7e:50,Broadcast,802.11,150,"Beacon frame, SN=3904, FN=0, Flags=........, BI=100, SSID=""airspy"""
+75,0.012993,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=24577 Win=17520 Len=0
+76,0.013161,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+77,0.013208,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+78,0.01348,192.168.100.52,192.168.100.51,TCP,80,[TCP Dup ACK 75#1] 1075  >  20 [ACK] Seq=1 Ack=24577 Win=17520 Len=0
+79,0.013918,192.168.100.51,192.168.100.52,TCP,668,"[TCP Retransmission] 20  >  1075 [PSH, ACK] Seq=26037 Ack=1 Win=65535 Len=588"
+80,0.013923,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+81,0.014287,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+82,0.014298,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+83,0.014487,192.168.100.52,192.168.100.51,TCP,80,[TCP Dup ACK 75#2] 1075  >  20 [ACK] Seq=1 Ack=24577 Win=17520 Len=0
+84,0.014697,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+85,0.014708,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+86,0.015108,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
+87,0.015112,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+88,0.015403,192.168.100.52,192.168.100.51,TCP,80,[TCP Dup ACK 75#3] 1075  >  20 [ACK] Seq=1 Ack=24577 Win=17520 Len=0
+89,0.015494,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+90,0.015497,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=26625 Win=17520 Len=0
+91,0.015641,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+92,0.015647,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=28673 Win=17520 Len=0
+93,0.01565,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+94,0.016105,192.168.100.51,192.168.100.52,TCP,1540,"[TCP Retransmission] 20  >  1075 [PSH, ACK] Seq=28673 Ack=1 Win=65535 Len=1460"
+95,0.016111,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+96,0.016285,192.168.100.51,192.168.100.52,FTP-DATA,668,FTP Data: 588 bytes
+97,0.01629,,Cisco_fa:7e:50,802.11,10,"Acknowledgement, Flags=........"
+98,0.016396,192.168.100.52,192.168.100.51,TCP,80,1075  >  20 [ACK] Seq=1 Ack=30721 Win=17520 Len=0
+99,0.016974,,AskeyCompute_bd:77:35,802.11,10,"Acknowledgement, Flags=........"
+100,0.016979,192.168.100.51,192.168.100.52,FTP-DATA,1540,FTP Data: 1460 bytes
