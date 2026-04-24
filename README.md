@@ -1,2 +1,6 @@
 # Forensics-Dashboard
-Dashboard for Forensics Investigation
+The Digital Forensics Dashboard is a web-based investigation platform built to centralize the digital forensic workflow. Instead of juggling multiple disconnected tools, investigators can manage cases, upload evidence, and view parsed forensic results all from one secure interface.
+
+The dashboard integrates four industry-standard forensic tools — Autopsy for disk analysis, Guymager for disk imaging, Volatility 3 for RAM forensics, and Wireshark for network traffic analysis. Python scripts parse the outputs from these tools and store the findings in a SQLite database, which is then displayed through the dashboard interface built with PHP, JavaScript, HTML, and CSS.
+
+Every file uploaded is verified using SHA-256 hashing to ensure evidence integrity. All user interactions are recorded in an immutable audit log that captures who performed an action, when, and what was done — forming the Chain of Custody record. Access to the dashboard is protected by a secure login system with bcrypt password hashing.
